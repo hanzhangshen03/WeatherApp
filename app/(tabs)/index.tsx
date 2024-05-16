@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, View } from 'react-native';
 import { Button } from '@mui/material';
 import { DateTime } from '@/components/initial_setup/DateTimeComponent';
 import { HelloWave } from '@/components/HelloWave';
@@ -6,43 +6,54 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import SearchBox from '@/components/initial_setup/SearchBox';
+import SearchBar from '@/components/initial_setup/SearchBar';
 import { ScrollView } from 'react-native-gesture-handler';
+import littleFriend from '@/assets/images/little_friend.jpg';
 
 
 export default function HomeScreen() {
   return (
     <ScrollView style={styles.page}>
+      {/* little friend component */}
+      <div style={styles.imagebox}>
+        <Image
+          source={littleFriend}
+          style={styles.littleFriend}
+          resizeMode='contain'></Image>
+      </div>
+
       {/* searchbox component */}
-      <ThemedView style={styles.searchBox}>
+      <View style={styles.searchBox}>
         <SearchBox></SearchBox>
-      </ThemedView>
+      </View>
 
       {/* date time component */}
-      <ThemedView style = {styles.dateTime}>
+      <View style = {styles.dateTime}>
         <DateTime></DateTime>
-      </ThemedView>
+      </View>
       
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  // titleContainer: {
-  //   flexDirection: 'row',
-  //   alignItems: 'center',
-  //   gap: 8,
-  // },
-  // stepContainer: {
-  //   gap: 8,
-  //   marginBottom: 8,
-  // },
   dateTime: {
-    alignItems: 'center'
+    alignItems: 'center',
+    height: '30%',
+    paddingTop: 20
   },
   searchBox: {
-    alignItems: 'center',
-    paddingBottom: 100
+    alignItems: 'center'
   },
   page: {
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  littleFriend: {
+    height: '100%',
+  },
+  imagebox: {
+    height: '30%',
+    width: '100%'
   }
 });
