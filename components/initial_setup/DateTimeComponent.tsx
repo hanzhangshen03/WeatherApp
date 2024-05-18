@@ -14,8 +14,8 @@ export const DateTime = () => {
 
     return (
         <View style={styles.mid}>
-            <Text style={styles.text}>{date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</Text>
-            <Text style={styles.text}>{date.toLocaleDateString([], {month: 'short', year:'numeric'})}</Text>
+            <Text style={styles.text}>{date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</Text>
+            <Text style={styles.text}>{date.toLocaleDateString([], { month: 'short', year: 'numeric' })}</Text>
         </View>
     )
 }
@@ -33,4 +33,3 @@ const styles = StyleSheet.create({
         fontSize: 30
     }
 })
-
