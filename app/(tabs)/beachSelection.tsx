@@ -1,34 +1,67 @@
 import React, {Component} from 'react';
-import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {SearchBar} from '@rneui/themed';
 
-export default function BeachSelection () {
-  return (
-  <div style={styles.divthing}>
-  <View style={styles.hello}>
-  <Text style={styles.hello}>Hello World :3</Text>
+export default class BeachSelectionPage extends Component {
+  state = {
+    search: ''
+  }
+
+  updateSearch = (search: string) => {
+    this.setState({ search });
+  };
+
+  render() {
+    return (
+  <View style={styles.bigContainer}>
+    <View style={styles.searchBarArea}>
+      <View style={styles.backButton}>
+
+      </View>
+      <SearchBar
+        style={styles.searchBar}
+        placeholder="Type Here..."
+        onChangeText={this.updateSearch}
+        value={this.state.search}
+      />
+      <View style={styles.littleFriend}>
+
+      </View>
+    </View>
+    <View style={styles.beachBoxArea}>
+
+    </View>
+    <View style={styles.beachBoxArea}>
+
+    </View>
   </View>
-  <View style={styles.hello2}>
-  <Text style={styles.hello2}>Hello World 2 :3</Text>
-  </View>
-  </div>
   );
+}
 }
 
 const styles = StyleSheet.create({
-  divthing: {
-    height: '100%'
+  bigContainer: {
+    flex: 1,
+    flexDirection: 'column'
   },
-  hello: {
-    alignItems: 'center',
-    color: 'pink',
-    backgroundColor: 'green',
-    height: '60%'
+  searchBarArea: {
+    backgroundColor: 'red',
+    flexDirection: 'row'
   },
+  searchBar: {
+    flex: 4
+  },
+  backButton: {
+    flex: 1
+  },
+  littleFriend: {
+    flex: 1
+  },
+  beachBoxArea: {
+    flex: 2,
+    backgroundColor: 'white'
+  },
+  beachBox: {
 
-  hello2: {
-    alignItems: 'center',
-    color: 'pink',
-    backgroundColor: 'cyan',
-    height: '40%'
   }
 })
