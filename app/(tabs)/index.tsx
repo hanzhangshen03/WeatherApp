@@ -2,7 +2,7 @@ import { Image, StyleSheet, Platform, View, ImageBackground } from 'react-native
 import { DateTime } from '@/components/initial_setup/DateTimeComponent';
 import SearchBox from '@/components/initial_setup/SearchBox';
 import { ScrollView } from 'react-native-gesture-handler';
-import littleFriend from '@/assets/images/little_friend.jpg';
+import littleFriend from '@/assets/images/Frog.png';
 import background from '@/assets/images/background.avif';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
