@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {SearchBar} from '@rneui/themed';
 
 export default class BeachSelectionPage extends Component {
@@ -7,8 +7,8 @@ export default class BeachSelectionPage extends Component {
     search: ''
   }
 
-  updateSearch = (search: string) => {
-    this.setState({ search });
+  updateSearch = (newSearch: string) => {
+    this.setState({ search: newSearch });
   };
 
   render() {
@@ -19,7 +19,7 @@ export default class BeachSelectionPage extends Component {
 
       </View>
       <SearchBar
-        style={styles.searchBar}
+        containerStyle={styles.searchBar}
         placeholder="Type Here..."
         onChangeText={this.updateSearch}
         value={this.state.search}
@@ -29,10 +29,14 @@ export default class BeachSelectionPage extends Component {
       </View>
     </View>
     <View style={styles.beachBoxArea}>
-
+      <View style={styles.beachBox}>
+        <Text></Text>
+      </View>
     </View>
     <View style={styles.beachBoxArea}>
+      <View style={styles.beachBox}>
 
+      </View>
     </View>
   </View>
   );
@@ -52,16 +56,22 @@ const styles = StyleSheet.create({
     flex: 4
   },
   backButton: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'purple'
   },
   littleFriend: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'green'
   },
   beachBoxArea: {
     flex: 2,
     backgroundColor: 'white'
   },
   beachBox: {
-
+    height: '90%',
+    width: '80%',
+    backgroundColor: 'black',
+    margin: 'auto',
+    padding: '2%'
   }
 })
