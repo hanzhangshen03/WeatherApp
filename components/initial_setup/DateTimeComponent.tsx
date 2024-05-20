@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Image } from "react-native";
-import { ThemedText } from "../ThemedText";
-import { ThemedView } from "../ThemedView";
+import { StyleSheet, Image, View, Text } from "react-native";
 
 export const DateTime = () => {
     var [date, setDate] = useState(new Date());
@@ -15,10 +13,10 @@ export const DateTime = () => {
     });
 
     return (
-        <ThemedView style={styles.mid}>
-            <ThemedText>{date.toLocaleTimeString()}</ThemedText>
-            <ThemedText>{date.toLocaleDateString()}</ThemedText>
-        </ThemedView>
+        <View style={styles.mid}>
+            <Text style={styles.text}>{date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</Text>
+            <Text style={styles.text}>{date.toLocaleDateString([], { month: 'short', year: 'numeric' })}</Text>
+        </View>
     )
 }
 
@@ -26,7 +24,12 @@ export default DateTime
 
 const styles = StyleSheet.create({
     mid: {
-        alignItems: 'center'
+        alignItems: 'center',
+        height: '100%',
+        fontSize: 100
+    },
+    text: {
+        color: 'white',
+        fontSize: 30
     }
 })
-
