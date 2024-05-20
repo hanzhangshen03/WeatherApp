@@ -6,7 +6,6 @@ import littleFriend from '@/assets/images/Frog.png';
 import background from '@/assets/images/background.avif';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.page}>
@@ -28,7 +27,7 @@ export default function HomeScreen() {
 
         {/* date time component */}
         <View style={styles.dateTime}>
-          <DateTime></DateTime>
+          <DateTime textColor={'white'}></DateTime>
         </View>
       </ScrollView>
 

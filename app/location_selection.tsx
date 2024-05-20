@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Button, StyleSheet, TextInput } from 'react-native';
 import { router } from 'expo-router';
@@ -17,9 +17,6 @@ export default function SearchBar() {
   }
   return (
     <div style={styles.division}>
-
-      <LocationOnIcon style={{ color: 'white' }}></LocationOnIcon>
-
       <TextInput
         style={{ height: 40, borderColor: 'grey', borderWidth: 1, color: 'white' }}
         onChangeText={handleInputChange}
@@ -40,10 +37,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    width: '100%'
+    width: '100%',
+    paddingTop: 10
   },
 })
-
-const locations = [
-  { title: 'cambridge' }
-];
