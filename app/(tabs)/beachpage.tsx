@@ -31,9 +31,7 @@ export default function BeachPage() {
 
                 <View style={styles.top_bar}>
                     {/* location */}
-                    <IconButton onClick={handleClick}>
-                        <ArrowBackIosNewIcon fontSize="small" />
-                    </IconButton>
+                    
                     <View style={styles.location}>
                         {/* location icon and text */}
                         <IconButton onClick={handleChangeLocation}>
@@ -48,7 +46,7 @@ export default function BeachPage() {
                         style={styles.littleFriend}
                         resizeMode='contain'></Image>
                 </View>
-
+        
                 <View style={styles.content}>
                     {/* tide bar */}
                     <View style={styles.tide}>
@@ -156,6 +154,13 @@ export default function BeachPage() {
                     </View>
                 </View>
 
+                {/* back button */}
+                <View style={styles.backButton}>
+                    <IconButton onClick={handleClick}>
+                        <ArrowBackIosNewIcon fontSize="small" />
+                    </IconButton>
+                </View>
+                
             </SafeAreaView>
         </ImageBackground>
     )
@@ -309,5 +314,14 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'column',
         justifyContent: 'space-between',
+    },
+    backButton: {
+        position: "absolute",
+        left: 0,
+        top: 0,
+        bottom: 0,
+        height: '10%',
+        marginTop: 'auto',
+        marginBottom: 'auto'
     }
 });
