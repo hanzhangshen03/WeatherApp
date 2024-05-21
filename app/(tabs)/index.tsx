@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   page: {
-    height: 600
+    height: '100%',
+    width: '100%'
   },
   background: {
     position: "absolute",
