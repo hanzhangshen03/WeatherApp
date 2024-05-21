@@ -1,37 +1,19 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import { router } from 'expo-router'; // Import router from expo-router
 import { Card, CardContent, Typography, CardActions, Button as MButton } from '@mui/material';
-import React from 'react';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import { Autocomplete, TextField } from '@mui/material';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ScrollView } from 'react-native-gesture-handler';
 import FrogIcon from '@/components/initial_setup/FrogIcon';
 
-const card = (
-  <React.Fragment>
-    <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-        Recommended beach:
-      </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.primary">
-        Southwold Beach
-      </Typography>
-      <Typography variant="body2">
-        Rating: 4.8
-        <StarRateIcon fontSize="small" />
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <MButton size="small" onClick={() => router.push('/beachpage')}>View weather</MButton>
-    </CardActions>
-  </React.Fragment>
-);
-
-export default function SearchBar() {
+const SearchBar = () => {
   const [inputValue, setInputValue] = useState('');
-  const router = useRouter();
+
+  const handleSubmit = () => {
+    // go to beach page
+    router.push('/beachpage');
+  }
 
   const handleInputChange = (event, value) => {
     setInputValue(value.toString().toLowerCase());
@@ -49,17 +31,36 @@ export default function SearchBar() {
     }
   };
 
+  const card = (
+    <React.Fragment>
+      <CardContent>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Recommended beach:
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          Southwold Beach
+        </Typography>
+        <Typography variant="body2">
+          Rating: 4.8
+          <StarRateIcon fontSize="small" />
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <MButton size="small" onClick={handleSubmit}>View weather</MButton> {/* Updated onClick handler */}
+      </CardActions>
+    </React.Fragment>
+  );
+
   return (
     <SafeAreaView style={styles.page}>
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-
+      <View style={styles.container}>
         {/* Frog icon */}
         <View style={styles.frogIcon}>
           <FrogIcon />
         </View>
 
         {/* Autocomplete component */}
-        <View style={styles.container}>
+        <View style={styles.searchBar}>
           <Autocomplete
             freeSolo
             options={['Southwold Beach']}
@@ -77,16 +78,15 @@ export default function SearchBar() {
                 onKeyPress={handleKeyPress}
               />
             )}
-            style={styles.searchBar}
           />
         </View>
+      </View>
 
-        {/* Recommended beach */}
-        <View style={styles.recommendation}>
-          <Card variant="outlined">{card}</Card>
-        </View>
+      {/* Recommended beach */}
+      <View style={styles.recommendation}>
+        <Card variant="outlined">{card}</Card>
+      </View>
 
-      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -94,21 +94,12 @@ export default function SearchBar() {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-  },
-  scrollContainer: {
-    flexGrow: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-  },
-  frogIcon: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
-    zIndex: 1,
+    justifyContent: 'flex-start',
+    paddingTop: 20,
   },
   container: {
     width: '80%',
-    marginTop: 20,
   },
   searchBar: {
     width: '100%',
@@ -116,5 +107,13 @@ const styles = StyleSheet.create({
   recommendation: {
     width: '80%',
     marginTop: 20,
-  }
+  },
+  frogIcon: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zIndex: 1,
+  },
 });
+
+export default SearchBar;
