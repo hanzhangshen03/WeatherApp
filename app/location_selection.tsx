@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Button, StyleSheet, TextInput } from 'react-native';
 import { router } from 'expo-router';
 
