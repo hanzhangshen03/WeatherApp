@@ -7,10 +7,10 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import AirIcon from '@mui/icons-material/Air';
 import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import { Divider } from "react-native-elements";
-import { CircularProgress, IconButton, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
+import { CircularProgress, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import waveImage from "@/assets/images/wave.png";
 import background from "@/assets/images/wave_back.jpg";
-import littleFriend from '@/assets/images/Frog.png';
+import littleFriend from '@/assets/images/little_friend.jpg';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { router } from "expo-router";
 

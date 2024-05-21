@@ -9,7 +9,7 @@ import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import { Divider } from "react-native-elements";
 import { IconButton, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
 import background from "@/assets/images/main_page_back.jpg";
-import littleFriend from '@/assets/images/Frog.png';
+import littleFriend from '@/assets/images/little_friend.jpg';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { router } from "expo-router";
 

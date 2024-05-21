@@ -1,6 +1,6 @@
-# Welcome to Weather app for beachgoers👋
+# Welcome to your Expo app 👋
 
-This is a project for Cambridge Part IA Interaction Design.
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
 
@@ -16,17 +16,35 @@ This is a project for Cambridge Part IA Interaction Design.
     npx expo start
    ```
 
-3. Go to http://localhost:8081
+In the output, you'll find options to open the app in a
 
-4. Press F12 and change the Responsive Design mode to a phone with layout 330 $\times$ 630.
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Navigation
+## Get a fresh project
 
-1. Go to home page, key in "Cambridge" and submit. It will take you to the weather information page.
+When you're ready, run:
 
-2. Click on the location icon at the top to selection a location.
+```bash
+npm run reset-project
+```
 
-3. On the weather information page, click on the right arrow to go to the beach weather information page.
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-4. Click on the location icon at the stop to search for beaches or view recommended beaches nearby.
+## Learn more
+
+To learn more about developing your project with Expo, look at the following resources:
+
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Join the community
+
+Join our community of developers creating universal apps.
+
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
