@@ -9,9 +9,12 @@ import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import { Divider } from "react-native-elements";
 import { IconButton, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
 import background from "@/assets/images/main_page_back.jpg";
-import littleFriend from '@/assets/images/Frog.png';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { router } from "expo-router";
+import FrogIcon from '@/components/initial_setup/FrogIcon';
+
+import React, { useState } from 'react';
+import { Autocomplete, TextField } from '@mui/material';
 
 const handleClick = () => {
     // go to main page
@@ -24,24 +27,42 @@ const handleChangeLocation = () => {
 }
 
 export default function MainPage() {
+    const [inputValue, setInputValue] = useState('');
+  
+    const handleInputChange = (event, value) => {
+      setInputValue(value.toString().toLowerCase());
+    };
+
     return (
         <ImageBackground source={background} style={styles.background}>
             <SafeAreaView style={styles.page}>
-                <View style={styles.top_bar}>
-                    {/* location */}
-                    <View style={styles.location}>
-                        {/* location icon and text */}
-                        <IconButton onClick={handleChangeLocation}>
-                            <LocationOnIcon />
-                        </IconButton>
-                        <Text>Cambridge</Text>
-                    </View>
+                {/* Rest of your content here */}
+                <View style={styles.container}>
+                    {/* Autocomplete component */}
+                    <Autocomplete
+                    freeSolo
+                    options={['Cambridge']}
+                    value={inputValue}
+                    onInputChange={handleInputChange}
+                    filterOptions={(options, state) => 
+                        state.inputValue.toLowerCase().startsWith('c') ? options : []
+                    }
+                    renderInput={(params) => (
+                        <TextField 
+                            {...params} 
+                            label="Cambridge" 
+                            variant="standard" 
+                            autoFocus  // Add autoFocus prop here
+                        />
+                    )}
+                    style={styles.searchBar}
+                />
 
-                    {/* little friend */}
-                    <Image
-                        source={littleFriend}
-                        style={styles.littleFriend}
-                        resizeMode='contain'></Image>
+                </View>
+
+                {/* Frog icon */}
+                <View style={styles.frogIcon}>
+                    <FrogIcon />
                 </View>
 
                 <View style={styles.content}>
@@ -69,20 +90,20 @@ export default function MainPage() {
 
                         {/* precipitation and wind */}
                         <View style={styles.prec_wind}>
-                            {/* precipitation */}
-                            <Text style={styles.precipitation}>
-                                2% chance of precipitation
-                            </Text>
-                            {/* wind speed and direction*/}
+                            <View style={styles.precipitation}>
+                                <Text>2% chance of precipitation</Text>
+                            </View>
                             <View style={styles.wind}>
                                 <Text>14 MPH</Text>
                                 <Text>NW</Text>
                             </View>
 
                             {/* button to go to beach page */}
-                            <IconButton onClick={handleClick}>
-                                <ArrowForwardIosIcon fontSize="small" />
-                            </IconButton>
+                            <View style={styles.arrowContainer}>
+                                <IconButton onClick={handleClick}>
+                                    <ArrowForwardIosIcon fontSize="small" />
+                                </IconButton>
+                            </View>
                         </View>
 
                         {/* sun rise and sun set */}
@@ -167,9 +188,20 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center'
     },
-    littleFriend: {
-        width: '30%',
-        height: '100%'
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 20,
+    },
+    searchBar: {
+        width: '80%',
+    },
+    frogIcon: {
+        position: 'absolute',
+        top: 10,
+        right: 10,
+        zIndex: 1,
     },
     content: {
         height: '90%',
@@ -226,20 +258,23 @@ const styles = StyleSheet.create({
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'flex-start',
+        justifyContent: 'center', // Center the child elements horizontally
+        alignItems: 'center', // Center the child elements vertically
     },
     precipitation: {
-        height: '100%',
-        width: '48%',
-        alignContent: 'center',
-        fontSize: 13,
-        textAlign: 'center'
+        width: '45%', // Adjust the width as needed
+        textAlign: 'center',
     },
     wind: {
-        height: '100%',
-        width: '48%',
+        width: '45%', // Adjust the width as needed
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
         alignItems: 'center',
-        justifyContent: 'space-evenly'
+    },
+    arrowContainer: {
+        width: '10%', // Adjust the width as needed
+        textAlign: 'center',
     },
     sun: {
         height: '5%',
@@ -252,7 +287,7 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '30%',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     forecast: {
         height: '50%',

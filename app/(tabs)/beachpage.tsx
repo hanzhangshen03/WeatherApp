@@ -7,12 +7,12 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import AirIcon from '@mui/icons-material/Air';
 import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import { Divider } from "react-native-elements";
-import { CircularProgress, IconButton, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
+import { CircularProgress, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import waveImage from "@/assets/images/wave.png";
 import background from "@/assets/images/wave_back.jpg";
-import littleFriend from '@/assets/images/Frog.png';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { router } from "expo-router";
+import FrogIcon from '@/components/initial_setup/FrogIcon';
 
 const handleClick = () => {
     // go to main page
@@ -42,11 +42,10 @@ export default function BeachPage() {
                         <Text>Southwold Beach</Text>
                     </View>
 
-                    {/* little friend */}
-                    <Image
-                        source={littleFriend}
-                        style={styles.littleFriend}
-                        resizeMode='contain'></Image>
+                    {/* Frog icon */}
+                    <View style={styles.frogIcon}>
+                        <FrogIcon />
+                    </View>
                 </View>
 
                 <View style={styles.content}>
@@ -181,9 +180,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center'
     },
-    littleFriend: {
-        width: '30%',
-        height: '100%'
+    frogIcon: {
+        position: 'absolute',
+        top: 10,
+        right: 10,
+        zIndex: 1,
     },
     content: {
         height: '90%',
