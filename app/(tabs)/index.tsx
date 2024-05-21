@@ -1,10 +1,11 @@
-import { Image, StyleSheet, Platform, View, ImageBackground } from 'react-native';
+import React from 'react';
+import { Image, StyleSheet, View, ImageBackground } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import FrogIcon from '@/components/initial_setup/FrogIcon'; // Import the FrogIcon component
 import { DateTime } from '@/components/initial_setup/DateTimeComponent';
 import SearchBox from '@/components/initial_setup/SearchBox';
-import { ScrollView } from 'react-native-gesture-handler';
-import littleFriend from '@/assets/images/Frog.png';
 import background from '@/assets/images/background.avif';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   return (
@@ -12,22 +13,19 @@ export default function HomeScreen() {
 
       <ScrollView style={styles.scroll}>
 
-        {/* little friend component */}
-        <div style={styles.imagebox}>
-          <Image
-            source={littleFriend}
-            style={styles.littleFriend}
-            resizeMode='contain'></Image>
-        </div>
+        {/* Frog icon */}
+        <View style={styles.frogIcon}>
+          <FrogIcon />
+        </View>
 
         {/* searchbox component */}
         <View style={styles.searchBox}>
-          <SearchBox></SearchBox>
+          <SearchBox />
         </View>
 
         {/* date time component */}
         <View style={styles.dateTime}>
-          <DateTime textColor={'white'}></DateTime>
+          <DateTime textColor={'white'} />
         </View>
       </ScrollView>
 
@@ -52,12 +50,15 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'transparent'
   },
-  littleFriend: {
-    height: '100%',
-  },
   imagebox: {
     height: '30%',
     width: '100%'
+  },
+  frogIcon: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zIndex: 1,
   },
   page: {
     height: 600

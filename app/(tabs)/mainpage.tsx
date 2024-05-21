@@ -9,9 +9,9 @@ import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import { Divider } from "react-native-elements";
 import { IconButton, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
 import background from "@/assets/images/main_page_back.jpg";
-import littleFriend from '@/assets/images/little_friend.jpg';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { router } from "expo-router";
+import FrogIcon from '@/components/initial_setup/FrogIcon';
 
 const handleClick = () => {
     // go to main page
@@ -37,11 +37,10 @@ export default function MainPage() {
                         <Text>Cambridge</Text>
                     </View>
 
-                    {/* little friend */}
-                    <Image
-                        source={littleFriend}
-                        style={styles.littleFriend}
-                        resizeMode='contain'></Image>
+                    {/* Frog icon */}
+                    <View style={styles.frogIcon}>
+                        <FrogIcon />
+                    </View>
                 </View>
 
                 <View style={styles.content}>
@@ -167,9 +166,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center'
     },
-    littleFriend: {
-        width: '30%',
-        height: '100%'
+    frogIcon: {
+        position: 'absolute',
+        top: 10,
+        right: 10,
+        zIndex: 1,
     },
     content: {
         height: '90%',
