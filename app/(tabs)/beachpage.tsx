@@ -10,9 +10,9 @@ import { Divider } from "react-native-elements";
 import { CircularProgress, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import waveImage from "@/assets/images/wave.png";
 import background from "@/assets/images/wave_back.jpg";
+import littleFriend from '@/assets/images/little_friend.jpg';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { router } from "expo-router";
-import FrogIcon from '@/components/initial_setup/FrogIcon';
 
 const handleClick = () => {
     // go to main page
@@ -42,10 +42,11 @@ export default function BeachPage() {
                         <Text>Southwold Beach</Text>
                     </View>
 
-                    {/* Frog icon */}
-                    <View style={styles.frogIcon}>
-                        <FrogIcon />
-                    </View>
+                    {/* little friend */}
+                    <Image
+                        source={littleFriend}
+                        style={styles.littleFriend}
+                        resizeMode='contain'></Image>
                 </View>
 
                 <View style={styles.content}>
@@ -180,11 +181,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center'
     },
-    frogIcon: {
-        position: 'absolute',
-        top: 10,
-        right: 10,
-        zIndex: 1,
+    littleFriend: {
+        width: '30%',
+        height: '100%'
     },
     content: {
         height: '90%',
